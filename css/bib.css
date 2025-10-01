@@ -1,0 +1,89 @@
+.bib-btn {
+  background: none;
+  border: none;
+  color: #0097e6;     /* 蓝色主题 */
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.1em;
+}
+
+.bib-btn:hover {
+  text-decoration: underline;
+}
+
+/* 弹层整体 */
+#bib-popover {
+  position: absolute;
+  z-index: 9999;
+  max-width: 720px;
+  min-width: 360px;
+  background: #f4faff; /* 浅蓝背景 */
+  border: 1px solid #cce4f6;
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+/* 顶部工具栏 */
+#bib-popover .bib-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  font-weight: 600;
+  background: #e6f3fc;  /* 工具栏背景更深一点的浅蓝 */
+  border-bottom: 1px solid #cce4f6;
+  color: #0366d6;
+}
+
+/* Copy 按钮 */
+#bib-copy-btn {
+  background: #0097e6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#bib-copy-btn:hover {
+  background: #007bbf;  /* 悬停时更深蓝 */
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,151,230,0.3);
+}
+
+#bib-copy-btn:active {
+  transform: translateY(0); /* 点击时回落 */
+  box-shadow: none;
+}
+
+/* Bibtex 内容块 */
+#bib-popover pre {
+  margin: 0;
+  padding: 12px 14px;
+  max-height: 50vh;
+  overflow: auto;
+  background: #ffffff; /* 白底 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #2d3436;
+  border-top: 1px solid #e3edf7;
+}
+
+/* 小箭头 */
+#bib-popover::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 24px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #f4faff transparent;
+  filter: drop-shadow(0 -1px 0 #cce4f6);
+}

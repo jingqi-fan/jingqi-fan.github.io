@@ -1,0 +1,248 @@
+/* 通用样式 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  /*background: #f5f6fa;*/
+  color: #2f3640;
+  line-height: 1.6;
+}
+
+
+/* 仅去掉第一个 section 的顶部外边距 */
+section:first-of-type {
+  margin-top: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: flex-start;  /* 顶端对齐，看起来更紧凑 */
+  gap: 0.8rem;              /* 控制间距，比 margin-right 好 */
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.photo {
+  flex: 0 0 auto;           /* 图片固定宽度，不要自动撑开 */
+}
+
+.info {
+  flex: 1;                  /* 信息部分占剩余空间 */
+}
+
+.photo img {
+  width: 100%;
+  max-width: 420px;         /* 调整为你想要的大小 */
+  height: auto;
+  border: none;
+  border-radius: 3px;
+  margin-right: 80px;
+}
+
+
+/* 小屏幕下上下排列 */
+/* 小屏下仍然竖排，gap 会变成交错的上下间距 */
+@media (max-width: 768px) {
+  .profile { flex-direction: column; text-align: center; }
+  .photo { justify-content: center; flex: 0 0 auto; }
+}
+
+.info h2 {
+  margin-top: 5px;
+  font-size: 2.4rem;
+  color: #353b48;
+}
+
+.info p {
+  margin: .5rem 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.links a {
+  margin-right: 1rem;
+  color: #0097e6;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* 内容区域 */
+section {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/*.news-item {*/
+/*  background: #fff;*/
+/*  border-left: 4px solid #0097e6; !* 颜色可换成你的主题色 *!*/
+/*  padding: 0.5rem 1rem;*/
+/*  border-radius: 4px;*/
+/*  box-shadow: 0 2px 4px rgba(0,0,0,0.05);*/
+/*}*/
+
+.news-item {
+  background: #fff;
+  border-left: 4px solid #0097e6;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.2s ease; /* 动画过渡 */
+}
+
+.news-item:hover {
+  background: #f0f8ff;           /* 背景轻微变色，可换成浅灰 #f9f9f9 */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 阴影加深 */
+  transform: translateY(-2px);  /* 稍微上浮 */
+}
+
+
+.news-item p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+
+.publications {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;   /* 每个论文卡片之间的间距 */
+}
+
+.pub-item {
+  display: flex;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  align-items: flex-start;
+  transition: all 0.25s ease; /* 添加过渡动画 */
+}
+
+.pub-item:hover {
+  border-color: #0097e6;               /* 鼠标悬停时边框高亮 */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12); /* 阴影增强 */
+  transform: translateY(-4px);         /* 卡片轻微上浮 */
+  background: #fdfefe;                 /* 背景轻微变浅，柔和效果 */
+}
+
+
+.pub-img {
+  flex: 0 0 250px;   /* 固定图片宽度 */
+  margin-right: 1rem;
+}
+
+.pub-img img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.pub-info {
+  flex: 1;
+}
+
+.pub-info h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #353b48;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.pub_links a {
+  margin-right: 1rem;
+  color: #0097e6;
+  font-size: 1.1rem;
+  text-decoration: none;
+  /*font-weight: bold;*/
+}
+
+.pub_links a:hover {
+  text-decoration: underline;
+}
+
+.pub-info a:hover {
+  text-decoration: underline;
+}
+
+.pub-info p {
+  margin: 0.2rem 0;
+  font-size: 1.1rem;
+  color: #353b48;
+}
+
+/* 手机端上下排列 */
+@media (max-width: 768px) {
+  .pub-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .pub-img {
+    margin: 0 0 1rem 0;
+    flex: 0 0 auto;
+  }
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.exp-item {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.exp-info h4 {
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  color: #353b48;
+}
+
+.exp-info p {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.exp-info a {
+  margin-right: 1rem;
+  color: #0097e6;
+  font-size: 1.1rem;
+  text-decoration: none;
+  /*font-weight: bold;*/
+}
+
+.exp-info a:hover {
+  text-decoration: underline;
+}
+
+h3 {
+  /*border-bottom: 2px solid #718093;*/
+  padding-bottom: .5rem;
+  margin-bottom: 0.5rem;
+  color: #353b48;
+  font-size: 1.7rem;
+}
+
+

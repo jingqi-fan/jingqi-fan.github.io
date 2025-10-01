@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jingqi Fan</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <!-- Header -->
+  <div id="header"></div>
+
+  <!-- Profile Section -->
+  <section class="profile">
+    <div class="photo">
+      <img src="images/photo.jpg" alt="个人照片">
+    </div>
+    <div class="info">
+      <h2>Jingqi Fan</h2>
+      <p>Hi, I’m Jingqi, an undergraduate student at Northeastern University in China. <strong>I’m seeking a Ph.D. position starting in Fall 2026.</strong>  My research interests center on the theoretical foundations of reinforcement learning and its applications. Recently, I have been focusing on multi-agent systems, especially how agents collaborate or compete in bandit settings.</p>
+      <p>My email is jingqifanfanfan@gmail.com.</p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/jingqi-fan/">LinkedIn</a>
+        <a href="https://openreview.net/profile?id=~Jingqi_Fan3">OpenReview</a>
+        <a href="https://scholar.google.com/citations?user=qWdyEtsAAAAJ">Google Scholar</a>
+        <a href="https://github.com/jingqi-fan" target="_blank">GitHub</a>
+        <a href="https://github.com/jingqi-fan" target="_blank">CV</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- News -->
+<section>
+  <h3>News</h3>
+  <div class="news-list">
+    <div class="news-item">
+      <p><strong>[Feb 2025]</strong> &nbsp;&nbsp;&nbsp;&nbsp; One paper is accepted by <em>The 34th International Joint Conference on Artificial Intelligence (IJCAI)</em>.</p>
+    </div>
+    <div class="news-item">
+      <p><strong>[Dec 2024]</strong> &nbsp;&nbsp;&nbsp;&nbsp; Start internship at <em>Microsoft Research Asia</em> as a Research Intern.</p>
+    </div>
+<!--    <div class="news-item">-->
+<!--      <p><strong>[Sep 2024]</strong> Received Undergraduate Research Award at Northeastern University.</p>-->
+<!--    </div>-->
+<!--    <div class="news-item">-->
+<!--      <p><strong>[Aug 2024]</strong> Gave a talk on multi-agent bandits at the Student Workshop of ICML 2024.</p>-->
+<!--    </div>-->
+  </div>
+</section>
+
+
+
+  <!-- Experience -->
+  <!-- Publications -->
+<section>
+  <h3>Publications</h3>
+  <div class="publications">
+
+    <div class="pub-item">
+<!--      <div class="pub-img">-->
+<!--        <img src="images/paper_1.png" alt="Paper 1 preview">-->
+<!--      </div>-->
+      <div class="pub-info">
+        <h4>Decentralized Asynchronous Multi-player Bandits</h4>
+        <p><strong>Jingqi Fan</strong>, Canzhe Zhao, Shuai Li, Siwei Wang<sup>†</sup></p>
+<!--        <p><em>The 34th International Joint Conference on Artificial Intelligence (IJCAI), 2025</em></p>-->
+        <br>
+        <div class="pub_links">
+          <a href="https://arxiv.org/abs/2509.25824">Paper</a>
+          <a href="pdf/slide_asyn.pdf">Slide</a>
+<!--          <a href="https://openreview.net/profile?id=~Jingqi_Fan3">Poster</a>-->
+          <button class="bib-btn"
+        data-bib='
+@article{fan2025decentralized,
+  title={Decentralized Asynchronous Multi-player Bandits},
+  author={Fan, Jingqi and Zhao, Canzhe and Li, Shuai and Wang, Siwei},
+  journal={arXiv preprint arXiv:2509.25824},
+  year={2025}
+}
+'>BibTeX</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-item">
+<!--      <div class="pub-img">-->
+<!--        <img src="images/paper_1.png" alt="Paper 1 preview">-->
+<!--      </div>-->
+      <div class="pub-info">
+        <h4>Multi-player Multi-armed Bandits with Delayed Feedback</h4>
+        <p><strong>Jingqi Fan</strong>, Zilong Wang, Shuai Li<sup>†</sup>, Linghe Kong</p>
+        <p><em>The 34th International Joint Conference on Artificial Intelligence (IJCAI), 2025</em></p>
+        <br>
+        <div class="pub_links">
+          <a href="https://www.ijcai.org/proceedings/2025/0564.pdf">Paper</a>
+          <a href="pdf/slide_ijcai25.pdf">Slide</a>
+          <a href="pdf/poster_ijcai25.pdf">Poster</a>
+          <button class="bib-btn"
+        data-bib='
+@inproceedings{fan2025multiplayer,
+  title     = {Multi-player Multi-armed Bandits with Delayed Feedback},
+  author    = {Fan, Jingqi and Wang, Zilong and Li, Shuai and Kong, Linghe},
+  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on
+               Artificial Intelligence, {IJCAI-25}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  pages     = {5065--5073},
+  year      = {2025},
+  month     = {8},
+  doi       = {10.24963/ijcai.2025/564},
+  url       = {https://doi.org/10.24963/ijcai.2025/564},
+}
+'>BibTeX</button>
+        </div>
+      </div>
+    </div>
+
+
+<!-- 公共的 Bib 弹层（只放一次即可） -->
+<div id="bib-popover" role="dialog" aria-modal="true" hidden>
+  <div class="bib-toolbar">
+    <span>BibTeX</span>
+    <button id="bib-copy-btn" title="Copy">Copy</button>
+  </div>
+  <pre id="bib-code"><code></code></pre>
+</div>
+
+<!-- 引用外部 css/js -->
+<link rel="stylesheet" href="css/bib.css">
+<script src="script/bib.js"></script>
+
+
+  </div>
+</section>
+
+
+<!--&lt;!&ndash; Research Experience &ndash;&gt;-->
+<!--<section>-->
+<!--  <h3>Research Experience</h3>-->
+<!--  <div class="experience-list">-->
+
+<!--    <div class="exp-item">-->
+<!--      <div class="exp-info">-->
+<!--        <h4>Research Assistant</h4>-->
+<!--        <p><strong>NYU Stern School of Business</strong></p>-->
+<!--        <p>Advisor: <a href="https://openreview.net/profile?id=~Jingqi_Fan3">Prof. Zhengyuan Zhou</a> </p>-->
+<!--&lt;!&ndash;        <p><em>Jun 2022 – Aug 2022</em></p>&ndash;&gt;-->
+<!--        <p>-->
+<!--          Conducted research on distributed learning systems, proposed an-->
+<!--          improved consensus protocol, and co-authored a manuscript under-->
+<!--          submission.-->
+<!--        </p>-->
+
+<!--&lt;!&ndash;        &lt;!&ndash; 右侧 Logo &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="exp-logo">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img src="images/logo/nyu.png" alt="NYU Stern Logo">&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="exp-item">-->
+<!--      <div class="exp-info">-->
+<!--        <h4>Research Assistant</h4>-->
+<!--        <p><strong>John Hopcroft Center, Shanghai Jiao Tong University</strong></p>-->
+<!--        <p>Advisor: <a href="https://openreview.net/profile?id=~Jingqi_Fan3">Prof. Shuai Li</a> </p>-->
+<!--&lt;!&ndash;        <em>Sep 2023 – Present</em>&ndash;&gt;-->
+<!--        <p>-->
+<!--          Working with Prof. XXX on reinforcement learning theory, focusing on-->
+<!--          multi-agent systems and bandit algorithms. Developed proofs for regret-->
+<!--          bounds and implemented experiments in Python.-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</section>-->
+
+<!--&lt;!&ndash; Internship &ndash;&gt;-->
+<!--<section>-->
+<!--  <h3>Internships</h3>-->
+<!--  <div class="experience-list">-->
+
+<!--    <div class="exp-item">-->
+<!--      <div class="exp-info">-->
+<!--        <h4>Research Intern</h4>-->
+<!--        <p><strong>Microsoft Research Asia</strong></p>-->
+<!--        <p>Mentor: <a href="https://openreview.net/profile?id=~Jingqi_Fan3">Dr. Siwei Wang</a> </p>-->
+<!--        <p>-->
+<!--          Worked on reinforcement learning for cloud resource scheduling.-->
+<!--          Designed simulations for multi-agent task allocation and contributed-->
+<!--          to a prototype system deployed in Azure testbed.-->
+<!--        </p>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--  </div>-->
+<!--</section>-->
+
+
+  <!-- Footer -->
+  <div id="footer"></div>
+<script>
+    // 动态加载 header
+    fetch("header.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("header").innerHTML = data;
+      });
+
+    // 动态加载 footer
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+</body>
+</html>
