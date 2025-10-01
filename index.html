@@ -6,6 +6,7 @@
   <title>Jingqi Fan</title>
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
   <!-- Header -->
@@ -205,21 +206,24 @@
 
 
   <!-- Footer -->
-  <div id="footer"></div>
-<script>
-    // 动态加载 header
-    fetch("header.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header").innerHTML = data;
-      });
+  <footer>
+    <p>© 2025 Jingqi Fan. All rights reserved.</p>
+  </footer>
+<!--  <div id="footer"></div>-->
+<!--<script>-->
+<!--    // // 动态加载 header-->
+<!--    // fetch("header.html")-->
+<!--    //   .then(res => res.text())-->
+<!--    //   .then(data => {-->
+<!--    //     document.getElementById("header").innerHTML = data;-->
+<!--    //   });-->
 
-    // 动态加载 footer
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
+<!--    // 动态加载 footer-->
+<!--    fetch("footer.html")-->
+<!--      .then(res => res.text())-->
+<!--      .then(data => {-->
+<!--        document.getElementById("footer").innerHTML = data;-->
+<!--      });-->
+<!--  </script>-->
 </body>
 </html>
