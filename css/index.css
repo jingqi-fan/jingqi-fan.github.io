@@ -245,16 +245,24 @@ h3 {
   font-size: 1.7rem;
 }
 
-#visitor-globe {
-  width: 300px; /* 你可以改成 200 / 250 / 400 都可以 */
-  height: 300px;
-  margin: 40px auto; /* 居中 */
+.site-header .container {
+  display: flex;
+  justify-content: space-between; /* 左右分布 */
+  align-items: center;
 }
 
-/* 限制地球的 canvas 尺寸 */
+/* 控制地球大小 */
+#visitor-globe {
+  width: 100px;   /* 想大一点改这个，比如 120px / 140px */
+  height: 100px;
+}
+
+/* 让 ClustrMaps 的 canvas 按容器缩放 */
 #visitor-globe canvas {
   width: 100% !important;
   height: 100% !important;
+  display: block;
 }
+
 
 
