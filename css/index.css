@@ -249,8 +249,8 @@ h3 {
   width: 200px; /* 你可以改成 200 / 250 / 400 都可以 */
   height: 200px;
   margin: 20px auto; /* 居中 */
-  border-top: 1px solid #ccc;
-  padding-top: 20px; /* 让地球和线之间有点间距 */
+  /*border-top: 1px solid #ccc;*/
+  /*padding-top: 20px; !* 让地球和线之间有点间距 *!*/
 }
 
 /* 限制地球的 canvas 尺寸 */
