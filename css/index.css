@@ -245,4 +245,16 @@ h3 {
   font-size: 1.7rem;
 }
 
+#visitor-globe {
+  width: 300px; /* 你可以改成 200 / 250 / 400 都可以 */
+  height: 300px;
+  margin: 40px auto; /* 居中 */
+}
+
+/* 限制地球的 canvas 尺寸 */
+#visitor-globe canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 
