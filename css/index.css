@@ -253,8 +253,8 @@ h3 {
 
 /* 控制地球大小 */
 #visitor-globe {
-  width: 100px;   /* 想大一点改这个，比如 120px / 140px */
-  height: 100px;
+  width: 10px;   /* 想大一点改这个，比如 120px / 140px */
+  height: 10px;
 }
 
 /* 让 ClustrMaps 的 canvas 按容器缩放 */
