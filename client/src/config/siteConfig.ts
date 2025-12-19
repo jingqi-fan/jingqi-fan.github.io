@@ -87,6 +87,13 @@ export const navigationMenu = [
   { label: "CV", href: "/assets/CV_Jingqi_Fan.pdf", external: true },
 ];
 
+export const news = [
+  // 你可以按需改成从 siteConfig 导入
+  { id: 1, date: "2025-12", text: "One paper is accepted as AAMAS 2026 extended abstract.", link: "" },
+  { id: 2, date: "2025-02", text: "One paper is accepted to IJCAI 2025.", link: "" },
+  { id: 3, date: "2024-12", text: "Join Microsoft Research Asia as a Research Intern.", link: "" },
+];
+
 // ===========================
 // Publications
 // ===========================

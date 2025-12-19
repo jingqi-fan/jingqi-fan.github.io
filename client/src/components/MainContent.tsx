@@ -4,7 +4,14 @@ import {
   personalInfo, 
   publications,
   academicService,
+  news
 } from "@/config/siteConfig";
+
+// const news = [
+//   // 你可以按需改成从 siteConfig 导入
+//   { id: 1, date: "2025-12", text: "Your news item here.", link: "" },
+//   { id: 2, date: "2025-10", text: "Another update here.", link: "" },
+// ];
 
 export default function MainContent() {
     const [copied, setCopied] = useState(false);
@@ -29,6 +36,36 @@ export default function MainContent() {
           <p>
             {personalInfo.aboutMe.intro}
           </p>
+        </div>
+      </section>
+
+        {/* News Section (NEW) */}
+      <section id="news">
+        <h2 className="text-3xl font-semibold text-stone-500 dark:text-blue-300 mb-4 border-b border-gray-200 dark:border-gray-700 pb-2">
+          News
+        </h2>
+
+        <div className="space-y-3">
+          {news.map((item) => (
+            <div key={item.id} className="text-lg text-gray-700 dark:text-gray-300">
+              <span className="font-semibold text-gray-900 dark:text-gray-100">
+                {item.date}
+              </span>
+              <span className="mx-2">—</span>
+              {item.link ? (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-stone-500 dark:text-blue-300 hover:underline inline-flex items-center gap-1"
+                >
+                  {item.text} <ExternalLink className="w-4 h-4" />
+                </a>
+              ) : (
+                <span>{item.text}</span>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
