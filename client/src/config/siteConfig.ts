@@ -102,7 +102,7 @@ export const publications = [
     id: 1,
     authors: "Jingqi Fan, Canzhe Zhao, Shuai Li, Siwei Wang",
     title: "Decentralized Asynchronous Multi-player Bandits",
-    venue: "arXiv preprint",
+    venue: "In the 25th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2026), Extended Abstract",
     year: 2025,
     links: [
       { text: "Paper", type: "external", link: "https://arxiv.org/abs/2509.25824" },
@@ -124,7 +124,7 @@ export const publications = [
     id: 2,
     authors: "Jingqi Fan, Zilong Wang, Shuai Li, Linghe Kong",
     title: "Multi-player Multi-armed Bandits with Delayed Feedback",
-    venue: "In The 34th International Joint Conference on Artificial Intelligence (IJCAI 2025)",
+    venue: "In the 34th International Joint Conference on Artificial Intelligence (IJCAI 2025)",
     year: 2025,
     links: [
       { text: "Paper", type: "external", link: "https://www.ijcai.org/proceedings/2025/0564.pdf" },
