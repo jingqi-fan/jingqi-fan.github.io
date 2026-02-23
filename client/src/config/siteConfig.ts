@@ -84,7 +84,7 @@ export const socialLinks = {
 export const navigationMenu = [
   { label: "Home", href: "/#" },
   { label: "Publications", href: "/#publications" },
-  { label: "CV", href: "/assets/CV_Jingqi_Fan.pdf", external: true },
+  // { label: "CV", href: "/assets/CV_Jingqi_Fan.pdf", external: true },
 ];
 
 export const news = [
