@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jingqi Fan's homepage">
+    <meta name="keywords" content="Jingqi Fan, GitHub, paper, research, personal homepage">
+    <meta name="author" content="Jingqi Fan">
+    <title>Jingqi Fan</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="photo/fav.png">
+</head>
+<body>
+    <main class="portfolio-shell">
+        <aside class="profile-panel" aria-label="Profile and publication list">
+            <div class="profile">
+                <div class="portrait-frame">
+                    <img id="profile-photo" src="photo/photo1.jpg" alt="Portrait of Jingqi Fan">
+                    <span class="chalk-corner chalk-corner--top" aria-hidden="true"></span>
+                    <span class="chalk-corner chalk-corner--bottom" aria-hidden="true"></span>
+                </div>
+
+<!--                <p class="eyebrow">Researcher · Designer · Educator</p>-->
+                <p class="eyebrow">
+  <a href="https://www.linkedin.com/in/jingqi-fan/" rel="noopener noreferrer">LinkedIn</a>
+  ·
+  <a href="https://github.com/jingqi-fan" rel="noopener noreferrer">GitHub</a>
+  ·
+  <a href="https://openreview.net/profile?id=%7EJingqi_Fan3">OpenReview</a>
+</p>
+                <h1><span>Jingqi Fan</span></h1>
+                <p class="profile-copy">
+                    CS PhD student at UMass Amherst.
+                </p>
+            </div>
+
+            <section class="work-list" aria-labelledby="paper-heading">
+                <div class="section-heading">
+                    <p class="section-label" id="paper-heading">Papers</p>
+<!--                    <span>Selected publications</span>-->
+                </div>
+
+                <article class="work-item is-active"
+                         data-paper-id="learning-through-play"
+                         data-file="poster/asyn.pdf"
+                         data-title="Learning Through Play"
+                         aria-current="true">
+                    <button class="paper-preview" type="button">
+                        <span class="work-number">01</span>
+                        <span class="paper-content">
+                            <strong>Decentralized Asynchronous Multi-player Bandits</strong>
+                            <span class="paper-authors">Jingqi Fan, Canzhe Zhao, Shuai Li, Siwei Wang</span>
+                            <span class="paper-venue">Extend Abstract, AAMAS 2026</span>
+                        </span>
+                    </button>
+                    <div class="paper-actions">
+                        <a class="paper-link" href="https://arxiv.org/abs/2509.25824"
+                           rel="noopener" aria-label="Open Learning Through Play PDF">
+                            Paper <span aria-hidden="true">↗</span>
+                        </a>
+                        <button class="cite-button" type="button"
+                                aria-label="Copy BibTeX citation for Learning Through Play">
+                            Cite
+                        </button>
+                    </div>
+                </article>
+
+                <article class="work-item"
+                         data-paper-id="multiplayer-bandits"
+                         data-file="slide/delay.pdf"
+                         data-title="Multi-player Multi-armed Bandits with Delayed Feedback"
+                         aria-current="false">
+                    <button class="paper-preview" type="button">
+                        <span class="work-number">02</span>
+                        <span class="paper-content">
+                            <strong>Multi-player Multi-armed Bandits with Delayed Feedback</strong>
+                            <span class="paper-authors">Jingqi Fan, Zilong Wang, Shuai Li, Linghe Kong</span>
+                            <span class="paper-venue">IJCAI 2025</span>
+                        </span>
+                    </button>
+                    <div class="paper-actions">
+                        <a class="paper-link" href="https://www.ijcai.org/proceedings/2025/0564.pdf"
+                           rel="noopener"
+                           aria-label="Open Multi-player Multi-armed Bandits with Delayed Feedback on IJCAI">
+                            Paper <span aria-hidden="true">↗</span>
+                        </a>
+                        <button class="cite-button" type="button"
+                                aria-label="Copy BibTeX citation for Multi-player Multi-armed Bandits with Delayed Feedback">
+                            Cite
+                        </button>
+                    </div>
+                </article>
+            </section>
+
+            <footer class="profile-footer">
+                <p> </p>
+                <span><a href="mailto:jingqifan@umass.edu">jingqifan@umass.edu</a></span>
+            </footer>
+        </aside>
+
+        <section class="document-panel" aria-labelledby="document-title">
+            <header class="document-header">
+                <div>
+                    <p class="eyebrow">Latest Work</p>
+<!--                    <h2 id="document-title">Learning Through Play</h2>-->
+                </div>
+                <a class="open-document" id="open-document"
+                   href="poster/asyn.pdf" rel="noopener">
+                    Open PDF
+                    <span aria-hidden="true">↗</span>
+                </a>
+            </header>
+
+            <div class="viewer-wrap">
+                <div class="tape tape--left" aria-hidden="true"></div>
+                <div class="tape tape--right" aria-hidden="true"></div>
+                <iframe
+                    id="document-viewer"
+                    title="PDF document viewer"
+                    src="poster/asyn.pdf#view=FitH"
+                    loading="eager">
+                </iframe>
+            </div>
+
+            <p class="viewer-note">
+                Select a paper to preview it.
+            </p>
+        </section>
+    </main>
+
+    <div class="copy-toast" id="copy-toast" role="status" aria-live="polite"></div>
+
+    <script>
+        const workItems = document.querySelectorAll(".work-item");
+        const viewer = document.querySelector("#document-viewer");
+        const title = document.querySelector("#document-title");
+        const openDocument = document.querySelector("#open-document");
+        const copyToast = document.querySelector("#copy-toast");
+        const profilePhoto = document.querySelector("#profile-photo");
+        let toastTimer;
+
+        const profilePhotos = [
+            "photo/photo1.jpg",
+            "photo/photo2.jpg",
+            "photo/photo3.jpg",
+            "photo/photo4.jpg"
+        ];
+        const photoStorageKey = "jingqi-profile-photo-index";
+        let currentPhotoIndex = 0;
+        let bottomLatched = false;
+
+        function savePhotoIndex() {
+            sessionStorage.setItem(photoStorageKey, String(currentPhotoIndex));
+        }
+
+        function showPhoto(index) {
+            currentPhotoIndex = (index + profilePhotos.length) % profilePhotos.length;
+            profilePhoto.src = profilePhotos[currentPhotoIndex];
+            savePhotoIndex();
+        }
+
+        function showNextPhoto() {
+            profilePhoto.classList.add("is-changing");
+
+            setTimeout(() => {
+                showPhoto(currentPhotoIndex + 1);
+                profilePhoto.addEventListener("load", () => {
+                    profilePhoto.classList.remove("is-changing");
+                }, { once: true });
+
+                if (profilePhoto.complete) {
+                    profilePhoto.classList.remove("is-changing");
+                }
+            }, 120);
+        }
+
+        function isPageBottom() {
+            const scrollBottom = window.scrollY + window.innerHeight;
+            return scrollBottom >= document.documentElement.scrollHeight - 4;
+        }
+
+        function initializePhotoRotation() {
+            const storedIndex = sessionStorage.getItem(photoStorageKey);
+
+            if (storedIndex === null) {
+                showPhoto(0);
+                return;
+            }
+
+            const parsedIndex = Number.parseInt(storedIndex, 10);
+            currentPhotoIndex = Number.isNaN(parsedIndex) ? 0 : parsedIndex;
+            showPhoto(currentPhotoIndex + 1);
+        }
+
+        profilePhotos.forEach((photoPath) => {
+            const image = new Image();
+            image.src = photoPath;
+        });
+
+        initializePhotoRotation();
+
+        window.addEventListener("load", () => {
+            bottomLatched = isPageBottom();
+        });
+
+        window.addEventListener("scroll", () => {
+            const atBottom = isPageBottom();
+
+            if (atBottom && !bottomLatched) {
+                bottomLatched = true;
+                showNextPhoto();
+            } else if (!atBottom) {
+                bottomLatched = false;
+            }
+        }, { passive: true });
+
+        window.addEventListener("pageshow", (event) => {
+            if (!event.persisted) {
+                return;
+            }
+
+            showNextPhoto();
+            bottomLatched = isPageBottom();
+        });
+
+        const citations = {
+            "learning-through-play": `@article{fan2025decentralized,
+  title={Decentralized Asynchronous Multi-player Bandits},
+  author={Fan, Jingqi and Zhao, Canzhe and Li, Shuai and Wang, Siwei},
+  journal={arXiv preprint arXiv:2509.25824},
+  year={2025}
+}`,
+            "multiplayer-bandits": `@inproceedings{ijcai2025p564,
+  title     = {Multi-player Multi-armed Bandits with Delayed Feedback},
+  author    = {Fan, Jingqi and Wang, Zilong and Li, Shuai and Kong, Linghe},
+  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence, {IJCAI-25}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {James Kwok},
+  pages     = {5065--5073},
+  year      = {2025},
+  month     = {8},
+  note      = {Main Track},
+  doi       = {10.24963/ijcai.2025/564},
+  url       = {https://doi.org/10.24963/ijcai.2025/564}
+}`
+        };
+
+        function selectPaper(item) {
+            workItems.forEach((paper) => {
+                const isSelected = paper === item;
+                paper.classList.toggle("is-active", isSelected);
+                paper.setAttribute("aria-current", String(isSelected));
+            });
+
+            viewer.src = `${item.dataset.file}#view=FitH`;
+            title.textContent = item.dataset.title;
+            openDocument.href = item.dataset.file;
+        }
+
+        function showToast(message, isError = false) {
+            clearTimeout(toastTimer);
+            copyToast.textContent = message;
+            copyToast.classList.toggle("is-error", isError);
+            copyToast.classList.add("is-visible");
+            toastTimer = setTimeout(() => {
+                copyToast.classList.remove("is-visible");
+            }, 2200);
+        }
+
+        async function copyCitation(item, button) {
+            const citation = citations[item.dataset.paperId];
+            const originalLabel = button.textContent;
+
+            try {
+                await navigator.clipboard.writeText(citation);
+                button.textContent = "Copied";
+                showToast("BibTeX copied to clipboard.");
+            } catch (error) {
+                const textArea = document.createElement("textarea");
+                textArea.value = citation;
+                textArea.setAttribute("readonly", "");
+                textArea.style.position = "fixed";
+                textArea.style.opacity = "0";
+                document.body.appendChild(textArea);
+                textArea.select();
+
+                const copied = document.execCommand("copy");
+                textArea.remove();
+
+                if (!copied) {
+                    showToast("Could not copy the citation.", true);
+                    return;
+                }
+
+                button.textContent = "Copied";
+                showToast("BibTeX copied to clipboard.");
+            }
+
+            setTimeout(() => {
+                button.textContent = originalLabel;
+            }, 1800);
+        }
+
+        workItems.forEach((item) => {
+            item.querySelector(".paper-preview").addEventListener("click", () => {
+                selectPaper(item);
+            });
+
+            item.querySelector(".cite-button").addEventListener("click", (event) => {
+                copyCitation(item, event.currentTarget);
+            });
+        });
+    </script>
+</body>
+</html>
